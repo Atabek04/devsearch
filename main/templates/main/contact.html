@@ -1,0 +1,42 @@
+{% extends "main.html" %} 
+
+{% block content %}
+<h3>THis is a contact section. Welcome back {{name}}.</h3>
+
+	{% if age < 18 %}
+	  <h4>The access for platform denied.</h4>
+	
+		{% elif age == 18 %}
+	<h4>you are an adult</h4>
+
+	{% endif %}
+
+<br />
+<a href="#"><h4>+7 747 777 77 77</h4></a>
+<a href="#"><h4>+7 708 777 88 00</h4></a>
+<a href="#"><h4>otabek.shadimatov@gmail.com</h4></a><br>
+
+<table border="1">
+	<thead>
+		<tr>
+			<td>ID</td>
+			<td>Title</td>
+			<td>Description</td>
+
+		</tr>
+	</thead>	
+	<tbody>
+		{% for project in projects %}
+		<tr>
+			<td> {{project.id}} </td>
+			<td> {{project.title}} {% if project.topRated %}
+			  <strong>TOP RATED</strong>
+			{% endif %}</td>
+			<td> {{project.description}} </td>
+		</tr>
+		{% endfor %}
+	</tbody>
+</table>
+
+
+{% endblock content %}
